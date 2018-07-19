@@ -6,6 +6,7 @@ public class PersonnageJoueurbg : MonoBehaviour
 	#region Variables (public)
 	
 	public Rigidbody m_pRigidbody = null;
+	public Arme m_pArme = null;
 	public float m_fHp = 10;
 	public float m_fSpeed = 20.0f;
 	public float m_fVitesseDeSaut = 200.0f;
@@ -14,12 +15,16 @@ public class PersonnageJoueurbg : MonoBehaviour
 	#region Variables (private)
 
 	#endregion
+	private void Awake()
+	{
 
+	}
 
 	private void Update()
 	{
 		MoveCharacter();
 		Jump();
+		Attaquer();
 	}
 
 	private void MoveCharacter()
@@ -58,6 +63,14 @@ public class PersonnageJoueurbg : MonoBehaviour
 
 	}
 
+	private void Attaquer()
+	{
+		if (Input.GetButton("Fire1"))
+		{
+			m_pArme.Attaquer();
+		}
 
+
+	}
 
 }
