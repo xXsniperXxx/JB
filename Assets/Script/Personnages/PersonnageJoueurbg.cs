@@ -61,7 +61,24 @@ public class PersonnageJoueurbg : Personnage
 	{
 		if (Input.GetButton("Fire1"))
 		{
-			m_pArme.Attaquer();
+			Vector3 tDirectionDattaque = Input.mousePosition; // on stock la position de la souris 
+			tDirectionDattaque.x /= Screen.width; // on transforme de (x=1920, y=1080) à (x=1, y=1)
+			tDirectionDattaque.y /= Screen.height;
+
+			tDirectionDattaque -= new Vector3(0.5f, 0.5f, 0.5f); // on le prend par rapport au centre de l ecran (donc (x=5, y=0.5))
+			tDirectionDattaque.z = tDirectionDattaque.y;
+			tDirectionDattaque.y = 0.0f;
+
+			tDirectionDattaque = CameraPersonnage.Instance.transform.TransformDirection(tDirectionDattaque);
+			tDirectionDattaque.y = 0.0f;
+
+			if (tDirectionDattaque != Vector3.zero)
+				transform.forward = tDirectionDattaque.normalized;
+
+			base.Attaquer();
+
+
+
 		}
 
 

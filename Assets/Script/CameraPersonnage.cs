@@ -6,6 +6,8 @@ public class CameraPersonnage : MonoBehaviour
 	#region Variables (public)
 	public PersonnageJoueurbg m_pTarget = null;// p = pointeur, il peut etre 0
 	static public CameraPersonnage Instance = null;
+
+	public Camera m_pCamera = null;
 	public float m_fDistanceDeSuivi = 0.0f;
 	public float m_fVitesseDeRotation = 0.0f;
 	#endregion
